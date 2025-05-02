@@ -1,0 +1,10 @@
+*.gz
+*.out
+*.log
+*.aux
+doc/固玮示波器_GDS-1000B中文操作手册.pdf
+doc/器件手册/
+Lab5/test_table/table.bbl
+Lab5/test_table/
+models/preview/model.pdf
+.vscode/settings.json
