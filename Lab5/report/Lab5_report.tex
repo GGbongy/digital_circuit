@@ -14,7 +14,8 @@
 \usepackage{graphicx} % 支持图形和表格调整
 \usepackage{array} % 支持表格列格式调整
 \usepackage{amsmath} % 支持数学公式对齐
-
+\usepackage{physics} % 物理符号宏包
+\usepackage{siunitx} % 单位符号宏包
 % 设置段首缩进
 \setlength{\parindent}{2em} % 设置段首缩进为 2 个字符宽度
 
@@ -130,7 +131,7 @@ Q_2^{n+1}& =D_2^n=Q_2^n\oplus\left(Q_1^n\cdot Q_0^n\right)\\
     \centering
     \zihao{-4} % 设置字体大小与正文相同
     \setlength{\tabcolsep}{4pt} % 调整列间距
-    \renewcommand{\arraystretch}{2} % 调整行间距
+    \renewcommand{\arraystretch}{1.5} % 调整行间距
     \begin{tabular}{|>{\centering\arraybackslash}p{0.12\textwidth}|>{\centering\arraybackslash}p{0.12\textwidth}|>{\centering\arraybackslash}p{0.12\textwidth}|>{\centering\arraybackslash}p{0.12\textwidth}|>{\centering\arraybackslash}p{0.12\textwidth}|>{\centering\arraybackslash}p{0.12\textwidth}|}
         \hline
         \multicolumn{3}{|c|}{现态} & \multicolumn{3}{c|}{次态} \\ \hline
@@ -147,13 +148,49 @@ Q_2^{n+1}& =D_2^n=Q_2^n\oplus\left(Q_1^n\cdot Q_0^n\right)\\
     \caption{3位同步二进制递增计数器的状态转移真值表}
         \label{tab:state_transition_table} % 添加标签以便引用
 \end{table}
-
+\subsubsection{逻辑电路图}
+根据状态转移方程组不难设计出3位同步二进制递增计数器的逻辑电路图，
+将其输出接入译码器的三个输入位，
+可以得到广告流水灯的完整电路图，如图\ref{fig:circuit_diagram}所示。
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Ex1/img/Lab5_Ex1.png} % 确保文件名和路径正确
+  \caption{广告流水灯逻辑电路图}\label{fig:circuit_diagram}
+\end{figure}
 \section{实验仪器}
 
 \section{实验记录}
-记录真值表验证结果。
+根据电路图搭接电路，将面包板上的连续脉冲信号接入CP端，将信号频率设置为\SI{1}{\hertz}。
+将译码器的八个输出端接入面包板上的LED灯，进行动态验证。
+之后，把CP信号的频率改为\SI{1000}{\hertz}，依次把CP端、$\mathrm{Q_2}$、$\mathrm{Q_1}$、$\mathrm{Q_0}$和LED灯的输出端接入示波器，观察并记录波形。
+示波器波形实物图如图\ref{fig:experiment_setup5}和图\ref{fig:experiment_setup7}所示。
+汇总后的波形图如图\ref{fig:wavesummary}所示。
+\begin{figure}[htbp]
+    \centering
+    % \renewcommand{\thefigure}{图\arabic{figure}}  % 修改图片编号格式为"图X"
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Ex1/img/05.jpg}
+        \caption{示波器显示波形实物图(0号灯和5号灯)}
+        \label{fig:experiment_setup5}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Ex1/img/07.jpg}
+        \caption{示波器显示波形实物图(0号灯和7号灯)}
+        \label{fig:experiment_setup7}
+    \end{minipage}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Ex1/img/boxi.png}
+    \caption{汇总后的波形图}
+    \label{fig:wavesummary}
+\end{figure}
 \section{实验分析}
 符不符合预期。
+
 \section{实验小结}
 瞎写点东西。
 \end{document}
